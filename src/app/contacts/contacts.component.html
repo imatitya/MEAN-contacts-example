@@ -1,4 +1,3 @@
-<!-- Credit: https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_table_basic&stacked=h -->
 <div class="container">
   <h2>My contacts</h2>
   <table class="table">
@@ -11,22 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+      <tr *ngFor="let contact of contacts">
+        <td>{{contact?.firstName}}</td>
+        <td>{{contact?.lastName}}</td>
+        <td>{{contact?.email}}</td>
         <td><span class="glyphicon glyphicon-remove"></span></td>
       </tr>
     </tbody>

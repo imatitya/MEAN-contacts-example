@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestClientService } from '../rest-client.service';
 
 @Component({
   selector: 'app-contacts',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor() { }
+  contacts: any[] = [];
+  constructor(private restService: RestClientService) { }
 
   ngOnInit() {
+    this.restService.get('/api/contacts').subscribe(response => {
+      this.contacts = Object.assign(new Array<any>(), response)
+    })
   }
 
 }
+
