@@ -12,6 +12,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 const port = 3000
 app.set('port', port);
 
+// Get our API routes
+const api = require('./server/api');
+
+// Set our api routes
+app.use('/api', api);
+
 // Create http server
 const server = http.createServer(app);
 
