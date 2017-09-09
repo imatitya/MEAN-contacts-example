@@ -14,7 +14,7 @@
         <td>{{contact?.firstName}}</td>
         <td>{{contact?.lastName}}</td>
         <td>{{contact?.email}}</td>
-        <td><span class="glyphicon glyphicon-remove"></span></td>
+        <td><span class="button glyphicon glyphicon-remove" (click)="deleteContact(contact?.email);getContacts()"></span></td>
       </tr>
     </tbody>
     <tfoot>

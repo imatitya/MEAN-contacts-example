@@ -34,5 +34,12 @@ export class ContactsComponent implements OnInit {
     })
   }
 
+  deleteContact(email: string) {
+    this.restService.delete(this.route + '/' + email).subscribe(response => {
+      this.contacts = Object.assign(new Array<any>(), response)
+      console.debug(response)
+    })
+  }
+
 }
 

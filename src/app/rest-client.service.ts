@@ -17,7 +17,12 @@ export class RestClientService {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(route, JSON.stringify(body), { headers: headers })
-        .map(res => res.json())
+      .map(res => res.json())
+  }
+
+  delete(route: string) {
+    return this.http.delete(route)
+      .map(response => response.json());
   }
 
 }
