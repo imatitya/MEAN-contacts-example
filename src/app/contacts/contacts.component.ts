@@ -7,12 +7,30 @@ import { RestClientService } from '../rest-client.service';
 })
 export class ContactsComponent implements OnInit {
 
-  contacts: any[] = [];
-  constructor(private restService: RestClientService) { }
+  route: string
+  contacts: any[] = []
+  constructor(private restService: RestClientService) {
+    this.route = '/api/contacts'
+  }
 
   ngOnInit() {
-    this.restService.get('/api/contacts').subscribe(response => {
+    this.getContacts();
+  }
+
+  addContact(first: string, last: string, email: string) {
+    var body = {}
+    body["firstName"] = first
+    body["lastName"] = last
+    body["email"] = email
+    this.restService.post(this.route, body).subscribe(response => {
+      console.debug(response)
+    })
+  }
+
+  getContacts() {
+    this.restService.get(this.route).subscribe(response => {
       this.contacts = Object.assign(new Array<any>(), response)
+      console.debug(response)
     })
   }
 

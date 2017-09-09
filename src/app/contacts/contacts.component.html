@@ -6,7 +6,7 @@
         <th>First name</th>
         <th>Last name</th>
         <th>Email</th>
-        <th><span class="glyphicon glyphicon-plus"></span></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -17,5 +17,21 @@
         <td><span class="glyphicon glyphicon-remove"></span></td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <input type="text" placeholder="First name" class="form-control" [(ngModel)]="first"> 
+        </td>
+        <td>
+          <input type="text" placeholder="Lirst name" class="form-control" [(ngModel)]="last">
+        </td>
+        <td>
+          <input type="text" id="email" placeholder="email@example.com" class="form-control" [(ngModel)]="email">
+        </td>
+        <td><span class="button glyphicon glyphicon-plus" (click)="addContact(first, last, email);getContacts();first=last=email=''" type="submit"></span></td>
+      </tr>
+      <tr>
+      </tr>
+    </tfoot>
   </table>
 </div>

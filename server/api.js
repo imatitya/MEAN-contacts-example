@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
 
 // --- Contacts API---//
 router.get('/contacts', contactsController.list);
-//router.post('/contacts', contactsController.create);
+router.post('/contacts', contactsController.add);
 //router.delete('/contacts/:id', contactsController.delete);
 
 module.exports = router;
