@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+// Create DB connection
+var db = require('./server/db-connect');
+db.connect('mongodb://localhost:27017/');
+
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
